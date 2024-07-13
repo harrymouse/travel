@@ -1,0 +1,2561 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>travel website</title>
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
+    <!-- Google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <!-- <link rel="stylesheet" href="css/reponsive.css"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Open+Sans:wght@400;500&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+
+
+    <!-- bootstrap link -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- font awesome link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+</head>
+  <style>
+    * {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", sans-serif !important;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* form validation */
+
+#usererror {
+    color: red;
+}
+
+#erroremail {
+    color: red;
+}
+
+#errorpass {
+    color: red;
+}
+
+#errorcheckP {
+    color: red;
+}
+
+#texterror {
+    color: red;
+}
+
+#errorpasswordtext {
+    color: red;
+}
+
+/* form validation End  */
+
+/* navbar stikey  */
+
+.nav-link.black-color {
+    color: black !important;
+    /* Set nav-link color to black */
+}
+
+.navbar.scrolled {
+    position: fixed !important;
+    top: 0 !important;
+    background-color: white !important;
+    padding: 10px 0px;
+    z-index: 9999 !important;
+    width: 100% !important;
+    height: 50px !important;
+    transition: 0.4s !important;
+    border-bottom: 2px solid #ccc !important;
+}
+
+/* navbar stikey End  */
+
+/* loader spiner start  */
+
+.loader {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background-color: #ffff;
+    z-index: 9999;
+}
+
+.loader-roteded {
+    width: 36px;
+    height: 36px;
+    margin: 0 auto;
+    border: 3px solid #01bbb6;
+    border-radius: 50%;
+    border-left-color: transparent;
+    border-bottom-color: transparent;
+    animation: roted .4s infinite linear;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+.loadeing_value {
+    position: absolute;
+    top: 56%;
+    left: 49%;
+}
+
+@keyframes roted {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* loader spiner end  */
+
+/* scroll top btn */
+
+#myBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 14px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color: #01bbb6;
+    color: white;
+    cursor: pointer;
+    padding: 9px 15px;
+    border-radius: 4px;
+    display: none;
+    z-index: 9999;
+}
+
+#myBtn:hover {
+    background-color: #a700fe;
+}
+
+/* scroll top btn end  */
+
+/* side bar links */
+
+.side-fixed-link {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    padding: 10px;
+}
+
+.links-brands i {
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    width: 2.9rem;
+    padding: 10px;
+    height: 2.9rem;
+    text-align: center;
+    margin: 8px 0px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #fff;
+}
+
+.links-brands i:hover {
+    background-color: #a700fe;
+    transition: 0.6s;
+    color: #fff;
+    border: 0;
+}
+
+/* side bar links end  */
+
+/* side bar  */
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 17px;
+    color: #fff;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+.side {
+    display: none;
+}
+
+/* side bar nav End  */
+
+/* navbar  */
+
+.navbar_logo img {
+    max-width: 150px;
+    max-height: 33px;
+    margin-bottom: 5px;
+}
+
+.container-fluid {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1216px;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link {
+    padding: 0 41px !important;
+    font-weight: 500;
+    line-height: 1.2 !important;
+    transition: 0.5s !important;
+    font-size: 17px !important;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link:hover {
+    color: #01bbb6 !important;
+}
+
+.navbar {
+    padding: 32px 0px !important;
+}
+
+.nav-link {
+    color: #fff !important;
+}
+
+.header_fixed-top {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* navbar end  */
+
+/* hero section */
+
+.heading h1 {
+    color: #fff !important;
+    font-weight: 500;
+    font-size: 55px;
+}
+
+.pare p {
+    color: #fff;
+}
+
+.pare {
+    max-width: 600px;
+}
+
+.r-full {
+    display: flex;
+    align-items: center !important;
+    padding: 5rem 0rem !important;
+}
+
+.fileds input {
+    width: 100% !important;
+    height: 50px !important;
+    border-radius: 4px;
+    border: 1px solid #cccc;
+    outline: 0;
+    padding: 0 10px;
+    margin-bottom: 2px;
+}
+
+.c_types-fl {
+    width: 60% !important;
+}
+
+.c_types {
+    width: 40% !important;
+}
+
+.cta_btn button {
+    width: 100%;
+    outline: 0;
+    border: 0;
+    color: #fff;
+    background-color: #01bbb6;
+    padding: 10px 10px;
+    margin: 20px 0px;
+}
+
+.login .form {
+    padding: 30px 0px;
+}
+
+/* hero section end  */
+
+/* login form  */
+
+.wrapper {
+    position: relative;
+    max-width: 427px;
+    width: 100%;
+    border-radius: 3px;
+    padding: 20px 30px 87px;
+    background: #fff;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.form.login {
+    position: absolute;
+    left: 50%;
+    bottom: -86%;
+    transform: translateX(-50%);
+    width: calc(100% + 220px);
+    padding: 20px 140px;
+    border-radius: 50%;
+    height: 100%;
+    background: #fff;
+    transition: all 0.6s ease;
+    color: #fff;
+}
+
+.wrapper.active .form.login {
+    bottom: -15%;
+    border-radius: 35%;
+    box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form header {
+    font-size: 25px;
+    text-align: center;
+    color: black;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.form.login header {
+    color: #333;
+    opacity: 0.6;
+    font-weight: 500;
+}
+
+.wrapper.active .form.login header {
+    opacity: 1;
+}
+
+.wrapper.active .signup header {
+    opacity: 0.6;
+}
+
+.wrapper form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 40px;
+}
+
+form input {
+    height: 51px;
+    outline: none;
+    border: none;
+    padding: 0 15px;
+    font-size: 16px;
+    font-weight: 400;
+    color: #333;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+.form.login input {
+    border: 1px solid #aaa;
+}
+
+.form.login input:focus {
+    box-shadow: 0 1px 0 #ddd;
+}
+
+form .checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.checkbox input[type="checkbox"] {
+    height: 16px;
+    width: 16px;
+    accent-color: #fff;
+    cursor: pointer;
+}
+
+form .checkbox label {
+    cursor: pointer;
+    color: black;
+}
+
+form a {
+    color: #333;
+    text-decoration: none;
+}
+
+form a:hover {
+    text-decoration: underline;
+}
+
+form input[type="submit"] {
+    margin-top: 15px;
+    padding: none;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    background-color: #01bbb6;
+    color: #fff;
+}
+
+.form.login input[type="submit"] {
+    background: #01bbb6;
+    color: #fff;
+    border: none;
+}
+
+/* login form  end  */
+
+/* best seller */
+
+.price_fl-content p {
+    font-weight: 200;
+}
+
+.seller_fl {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 25px;
+    grid-row-gap: 5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.seller_img {
+    position: relative;
+}
+
+.overlay-fl {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    background-color: #1f1f214e;
+    width: 100%;
+    height: 69.5%;
+    opacity: 0;
+    transition: 0.3s;
+    border-radius: 5px;
+}
+
+.overlay-fl:hover {
+    opacity: 1;
+}
+
+.seller_tiitle {
+    padding: 4rem 0rem;
+    text-align: center;
+}
+
+.seller_tiitle h2 {
+    font-size: 48px;
+}
+
+.fl_menu_price_fl {
+    display: flex;
+    justify-content: space-between;
+    padding: 13px 0px;
+    padding-bottom: 0;
+}
+
+.fl_menu_price_fl a {
+    text-decoration: none;
+    color: #01bbb6;
+}
+
+.tiitle-price_descript span {
+    font-size: 24px;
+    color: black;
+    line-height: 1.2;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.tiitle-price_descript span:hover {
+    color: #a700fe;
+}
+
+.seller_img img {
+    aspect-ratio: 3/2;
+    object-fit: cover;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cta_btn-fl {
+    text-align: center;
+    padding: 4rem 0rem;
+}
+
+.cta_btn-fl button {
+    padding-left: 50px;
+    padding-right: 50px;
+    padding: 19px 76px;
+    line-height: 1.25;
+    color: #fff;
+    background-color: #01bbb6;
+    border-radius: 5px;
+    border: 0;
+    outline: 0;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.cta_btn-fl button:hover {
+    background-color: #a700fe;
+    transition: 0.5s;
+}
+
+/* best seller  end */
+
+/* next section */
+
+.progress-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.mega-big {
+    padding: 30px 0px;
+}
+
+.progress-linear .progress-bar-linear-wrap {
+    height: 2px;
+    background-color: #e9e9e9;
+}
+
+.progress-linear .progress-bar-linear {
+    height: inherit;
+    background: #0ab193;
+    transition: .5s all ease-in-out;
+    animation: wid 3s;
+}
+
+#p-d-full img {
+    padding: 10px 0px;
+}
+
+.box-award img {
+    border-radius: 20px;
+}
+
+.button {
+    position: relative;
+    display: inline-block;
+    padding: 17px 52px;
+    font-size: 16px;
+    line-height: 1.15;
+    border-radius: 4px;
+    font-family: "Nunito", sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-align: center;
+    cursor: pointer;
+    vertical-align: middle;
+    user-select: none;
+    transition: .2s all ease-in;
+    background-color: #01bbb6;
+    text-decoration: none;
+    color: #fff;
+    margin: 13px 0px;
+}
+
+.button:hover {
+    background-color: #a700fe;
+    transition: 0.5s;
+}
+
+.bg-color {
+    background-color: #F7F7F7;
+    padding: 5rem 0rem;
+}
+
+@keyframes wid {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+/* next section end  */
+
+/* our advantage */
+
+.tiitle_advan {
+    text-align: center;
+    padding: 6rem 0rem;
+}
+
+.tiitle_advan p {
+    color: #29293a;
+    font-size: 18px;
+}
+
+.advantage-pare-p {
+    max-width: 559px;
+    margin: 0 auto;
+    padding: 20px 0px;
+    font-weight: 300;
+}
+
+.icon img {
+    width: 60px;
+}
+
+.icon {
+    border: 3px solid #eff2f4;
+    background-color: #fff;
+    display: inline-block;
+    width: 110px;
+    height: 101px;
+    padding: 20px;
+    border-radius: 100%;
+    position: relative;
+    top: 20px;
+}
+
+.box-classic-main {
+    padding: 20px 0px;
+    border: 1px solid #eff2f4;
+    background-color: #fff;
+}
+
+.box-classic-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 65px 15px 30px;
+    border-radius: 4px;
+    background: #ffffff;
+    border: 1px solid #eff2f4;
+}
+
+.box-classic-title {
+    letter-spacing: 0;
+    font-weight: 400;
+}
+
+.box-classic-inner {
+    padding: 15px 15px 0;
+    color: #828590;
+}
+
+/* our advantage End  */
+
+/* Experience the Beauty of Portugal  */
+
+.fl_content {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    justify-content: space-around;
+}
+
+.bg-img_bg {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(../img/bg-1\ \(2\).jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 63px 0px;
+    padding: 5rem;
+}
+
+.heading-fl-content h1 {
+    color: #ffff;
+}
+
+/* Experience the Beauty of Portugal End  */
+
+/* testimonilas  */
+
+.seller_tiitle-fl-types h2 {
+    font-size: 48px;
+}
+
+.wrap-txt {
+    text-align: center;
+    padding: 3rem 0rem;
+}
+
+#fl-fl-full .col-xl-3 {
+    width: 31% !important;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.text-flow-inner {
+    padding: 20px 20px;
+}
+
+.fl-user-profile {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.fl-user-profile img {
+    width: 60px;
+}
+
+.fl-img-user p {
+    margin-bottom: 0 !important;
+}
+
+/* testimonilas End  */
+
+/* circle bar  */
+
+article.counter-modern {
+    text-align: center !important;
+    gap: 20px;
+    color: #fff;
+}
+
+article.counter-modern img {
+    filter: invert();
+    padding: 10px 0px;
+    aspect-ratio: 3/2;
+    object-fit: contain;
+}
+
+.fl-dd-cl {
+    margin-top: -15px;
+}
+
+.counter {
+    font-size: 50px;
+    font-weight: 600;
+}
+
+.fl-float-p {
+    display: flex;
+    gap: 5px;
+    text-align: center;
+    padding: 5px 0px;
+    justify-content: center;
+}
+
+.fl-heading-po {
+    padding: 10px 0px;
+}
+
+.fl-dd-cl span {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.bg-circle-process {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding: 10rem 0rem;
+    margin: 60px 0px;
+}
+
+/* circle bar end   */
+
+/* blog post */
+
+.blog-content-post {
+    position: relative;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.432);
+    height: 100%;
+    border-radius: 10px;
+}
+
+.post-blog-img {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+}
+
+.post-blog-img img {
+    object-fit: cover;
+    aspect-ratio: 3/2;
+    border-radius: 8px;
+}
+
+.blog-text-content {
+    text-align: center;
+    padding: 2rem 0rem;
+    padding-bottom: 67px;
+}
+
+.blog-items-img {
+    position: relative;
+}
+
+.text-fl-blog {
+    position: absolute;
+    bottom: 50px;
+    color: #fff;
+    padding: 0 20px;
+}
+
+.p-types-pare p {
+    font-size: 15px;
+    font-weight: 200;
+}
+
+.p-types-pare span {
+    font-size: 24px;
+    line-height: 0.9;
+}
+
+.ct-new {
+    position: absolute;
+    top: 0;
+    padding: 10px 20px;
+}
+
+.ct-new button {
+    outline: 0;
+    padding: 3px 15px;
+    border: 0;
+    background-color: #01bbb6;
+    border-radius: 4px;
+    color: #fff;
+    white-space: nowrap;
+    text-align: center;
+}
+
+/* blog post End */
+
+/*  <!-- gallary --> */
+
+.bg-water {
+    position: relative;
+    padding: 5rem 0rem;
+    color: #fff;
+    z-index: 999;
+    margin-bottom: 0 !important;
+    margin: 5rem 0px;
+}
+
+.video-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+    background-color: black;
+}
+
+.video-bg video {
+    min-width: 100%;
+    min-height: 100%;
+}
+
+.content-fl-types_gallary-post {
+    position: relative;
+    z-index: 1;
+}
+
+.fl-types_repeat {
+    padding: 0;
+    text-align: left;
+}
+
+.big-slot-heading {
+    max-width: 680px;
+    margin-bottom: 23px;
+}
+
+.big-slot-heading h1 {
+    font-size: 48px;
+}
+
+.pare_p_types_bg-water {
+    max-width: 481px;
+    font-size: 20px;
+    padding-bottom: 20px;
+    font-weight: 200;
+}
+
+.heading_tittle-types {
+    padding: 20px 0px;
+    font-size: 20px;
+}
+
+/*  <!-- gallary End  --> */
+
+/* contact */
+
+.form-data-fo-fl input {
+    width: 100%;
+    height: 50px;
+    border: 1px solid #ccc !important;
+    margin: 10px 0px;
+}
+
+.form-detaile-input textarea {
+    width: 100%;
+    border: 1px solid #ccc !important;
+    border-radius: 10px;
+    outline: 0;
+    padding: 5px 10px;
+}
+
+.phone-cal a {
+    font-size: 60px;
+    color: black;
+    text-decoration: none;
+}
+
+.img-call img {
+    width: 50px;
+    padding: 30px 0px;
+}
+
+.content-fl-l-fl {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.content-fl-l-fl a {
+    font-size: 20px;
+    text-decoration: none;
+    color: black;
+}
+
+#fl-xl .col-xl-6 {
+    width: 31% !important;
+}
+
+.m-y-top-fl-types {
+    padding: 67px 0px;
+    padding-bottom: 0;
+    background-color: #f7f7f7;
+    padding-bottom: 95px;
+}
+
+.fl-op-text button {
+    padding: 14px 71px;
+    margin: 10px 0px;
+}
+
+/* contact End  */
+
+/* insta */
+
+.feedd {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    padding-bottom: 0;
+}
+
+.feeds_img img {
+    aspect-ratio: 3/2;
+    object-fit: cover;
+}
+
+/* insta End  */
+
+/* footer */
+
+.twitter-feed-icon {
+    display: flex;
+    gap: 10px;
+    padding: 26px 0px;
+}
+
+.f-p-footer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 2.1rem;
+}
+
+.bg-footer {
+    margin-top: -10px;
+    background-color: #1F1F21;
+    color: #fff;
+    margin-bottom: 0;
+    padding: 6rem 0rem;
+}
+
+.input-data input {
+    position: relative;
+}
+
+.input-data button {
+    position: absolute;
+    height: 50px;
+    border: 0;
+    outline: 0;
+    /* left: 0; */
+    right: 0;
+    width: 30%;
+    background-color: #01bbb6;
+    color: #fff;
+    font-weight: 500;
+}
+
+.fileds {
+    position: relative;
+}
+
+.footer-c_types_about h3 {
+    margin-bottom: 20px;
+}
+
+.footer-sec-content h3 {
+    margin-bottom: 20px;
+}
+
+.tiitle-fo h3 {
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.content-about-footer {
+    padding-bottom: 50px;
+}
+
+.tiitle-fo {
+    padding-bottom: 21px;
+}
+
+.footer-c_types_about p {
+    font-size: 18px;
+    color: gray;
+}
+
+.icon-feedd-img p {
+    font-size: 16px;
+    color: gray;
+}
+
+.icon-feedd-img a {
+    color: #01bbb6;
+    text-decoration: none;
+    transition: 0.6s;
+    font-size: 13.7px;
+}
+
+.icon-feedd-img a:hover {
+    color: #a700fe;
+}
+
+.tiitle-fo p {
+    font-size: 16px;
+    color: gray;
+}
+
+#copy-text {
+    margin-top: 50px !important;
+}
+
+
+/* css responsive Travel */
+
+@media (min-width: 1200px) {
+    #fl-xl .col-xl-5 {
+        width: 59.666667% !important;
+    }
+}
+
+@media (max-width: 1200px) {
+    .heading-fl-content h1 {
+        font-size: 30px !important;
+    }
+}
+
+@media screen and (max-width: 1030px) {
+    .fl_content {
+        flex-direction: column !important;
+    }
+}
+
+/* our Advenatage */
+
+@media (min-width: 992px) {
+    html:not(.tablet):not(.mobile) .box-classic:hover {
+        z-index: 2;
+    }
+    html:not(.tablet):not(.mobile) .box-classic:hover .box-classic-icon {
+        color: #0ab193;
+        background: #ffffff;
+        border-color: #0ab193;
+    }
+    html:not(.tablet):not(.mobile) .box-classic:hover .box-classic-main {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        filter: drop-shadow(0 3px 10px rgba(110, 123, 157, 0.18));
+    }
+    html:not(.tablet):not(.mobile) .box-classic:hover .box-classic-inner {
+        height: 120px;
+    }
+    html:not(.tablet):not(.mobile) .box-classic:not(:hover) .box-classic-inner {
+        color: transparent;
+    }
+    html:not(.tablet):not(.mobile) .box-classic-main {
+        position: relative;
+        z-index: -1;
+    }
+    html:not(.tablet):not(.mobile) .box-classic-inner {
+        position: absolute;
+        z-index: 3;
+        overflow: hidden;
+        top: 100%;
+        left: -1px;
+        right: -1px;
+        height: 0;
+        margin-top: -30px;
+        padding-top: 0;
+        padding-bottom: 30px;
+        transition: height .33s, color .1s;
+        background: #ffffff;
+        border-radius: 0 0 4px 4px;
+        transform: translate3d(0, 0, 0);
+        border: 1px solid #eff2f4;
+        border-top: 0;
+    }
+    html:not(.tablet):not(.mobile) .box-classic-inner::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 6px;
+        height: 40px;
+        background: linear-gradient(to top, white 30%, rgba(255, 255, 255, 0.4));
+        border-radius: inherit;
+    }
+}
+
+@media (min-width: 992px) {
+    html:not(.tablet):not(.mobile).ie-10 .box-classic-main,
+    html:not(.tablet):not(.mobile).ie-11 .box-classic-main {
+        position: relative;
+    }
+    html:not(.tablet):not(.mobile).ie-10 .box-classic-main::after,
+    html:not(.tablet):not(.mobile).ie-11 .box-classic-main::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        transition: .33s;
+        box-shadow: 0 3px 10px 0 rgba(110, 123, 157, 0.18);
+    }
+    html:not(.tablet):not(.mobile).ie-10 .box-classic:hover .box-classic-main::after,
+    html:not(.tablet):not(.mobile).ie-11 .box-classic:hover .box-classic-main::after {
+        bottom: -90px;
+    }
+}
+
+/* /* our Advenatage  End */
+
+@media (max-width: 992px) {
+    #fl-xl .col-xl-5 {
+        width: 100% !important;
+    }
+    .container-fluid {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 706px !important;
+    }
+    .seller_fl {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .bg-img_bg {
+        padding: 2rem;
+        text-align: center;
+    }
+    .links-brands i {
+        display: none;
+    }
+    .side {
+        display: block !important;
+        color: #fff;
+    }
+    .c_types-fl {
+        width: 100% !important;
+    }
+    .c_types {
+        width: 100% !important;
+    }
+    .fl_content {
+        flex-direction: column;
+    }
+    .cta_btn-fl {
+        padding: 20px 0px;
+    }
+    #fl-fl-full .col-xl-3 {
+        width: 49% !important;
+        background-color: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        margin: 14px 0px;
+    }
+    article.counter-modern {
+        flex-direction: column;
+        padding: 20px 0px;
+    }
+    .f-p-footer {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .navbar-toggler {
+        padding: var(--bs-navbar-toggler-padding-y) var(--bs-navbar-toggler-padding-x);
+        font-size: var(--bs-navbar-toggler-font-size);
+        line-height: 1;
+        background: none !important;
+        border: 0 !important;
+        color: #fff !important;
+        outline: none !important;
+    }
+    .navbar {
+        padding: 10px 0px !important;
+    }
+    .side.active {
+        color: black !important;
+    }
+    .navbar.scrolled {
+        height: 56px !important;
+    }
+    .side.color-black-side {
+        color: black !important;
+        font-weight: 500;
+    }
+}
+
+@media (max-width: 750px) {
+    .f-p-footer {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .big-slot-heading h1 {
+        font-size: 31px !important;
+    }
+    .post-blog-img {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .seller_tiitle h2 {
+        font-size: 37px;
+    }
+    .seller_fl {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    form input {
+        height: 42px;
+    }
+    .heading h1 {
+        color: #fff !important;
+        font-weight: 500;
+        font-size: 29px;
+    }
+    .container-fluid {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 484px !important;
+    }
+    #fl-fl-full .col-xl-3 {
+        width: 100% !important;
+    }
+    .icon-fl.counter-modern-icon img {
+        filter: invert();
+    }
+    .fl-heading-po h1 {
+        color: #fff;
+    }
+    .f.fl-dd-cl span {
+        color: #fff;
+    }
+    .cta_btn-fl button {
+        font-size: 12px;
+        padding: 13px 69px;
+    }
+    .seller_tiitle-fl-types h2 {
+        font-size: 32px;
+    }
+    .navbar-nav .nav-link.active,
+    .navbar-nav .nav-link.show {
+        padding: 20px 12px !important;
+    }
+    .ms-auto {
+        background-color: #fff;
+        color: black;
+        margin: 10px 0px !important;
+    }
+    .rp-full-w .col-6 {
+        width: 100% !important;
+    }
+}
+
+@media (max-width: 469px) {
+    .cta_btn-fl button {
+        width: 100%;
+    }
+    .button {
+        width: 100%;
+    }
+    .sidenav {
+        padding-top: 58px;
+    }
+    .sidenav a {
+        font-size: 18px;
+    }
+    article.box-award img {
+        width: auto !important;
+    }
+}
+
+/* css responsive travel */
+/* footer End  */
+  </style>
+<body>
+
+    <!-- fixed links  -->
+    <div class="side-fixed-link">
+        <div class="links-brands">
+            <i class="fa-brands fa-facebook-f"></i>
+        </div>
+        <div class="links-brands">
+            <i class="fa-brands fa-instagram"></i>
+        </div>
+        <div class="links-brands">
+            <i class="fa-brands fa-twitter"></i>
+        </div>
+    </div>
+    <!-- fixed links end  -->
+
+
+    <!-- loader spiner start -->
+
+    <!-- <div class="loader" id="preloader">
+      <div class="loader-roteded" >
+    
+      </div>
+           
+     <div class="loadeing_value">
+        <p>Loading...</p>
+      </div> 
+     </div> -->
+
+    <!-- loader spiner end  -->
+
+    <!-- scroll top btn -->
+    <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa-solid fa-chevron-up"></i></button>
+    <!-- scroll top btn end  -->
+
+
+    <!-- navbar  start -->
+
+    <header class="header_fixed-top" style="    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(./img/background\ \(1\).jpg);
+  ">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <div class="navbar_logo">
+                        <img src="img/travel_logo-removebg-preview.png" alt="">
+                    </div>
+                </a>
+
+                <div id="mySidenav" class="sidenav">
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                    <a href="#">HOME</a>
+                    <a href="#best-seller"> TOURS</a>
+                    <a href="#about"> ABOUT</a>
+                    <a href="#advantages">ADVANTAGES</a>
+                    <a href="#blog">BLOG</a>
+                    <a href="#contact">CONTACTS</a>
+                </div>
+                <div class="side">
+                    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+                </div>
+
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">HOME</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#best-seller"> TOURS
+              </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#about">
+                ABOUT</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#advantages"> ADVANTAGES
+              </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#blog"> BLOG</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#contact"> CONTACTS</a>
+                        </li>
+
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+
+
+        <!-- hero section -->
+        <div class="container-fluid">
+            <div class="row r-full">
+                <div class="col-6 c_types-fl">
+                    <div class="content">
+                        <div class="content">
+                            <div class="heading">
+                                <h1>The Best Trips Around Portugal Begin With Us</h1>
+                            </div>
+                            <div class="pare">
+                                <p>Since our foundation, Skyline has been the leading tour agency in Portugal, offering top-quality services. We take great pride in our diverse portfolio of tours in Portugal. We also offer high quality tours and experiences.
+                                    </p>
+                            </div>
+
+                            <div class="cta_btn-fl" style="text-align: left; padding: 20px 0px;">
+                                <div class="cta_btn_menu-fl">
+                                    <button>Enroll Now</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6 c_types">
+
+                    <section class="wrapper">
+                        <div class="form signup">
+                            <header>Signup</header>
+                            <form action="" onsubmit="return validation()">
+
+                                <input type="text" placeholder="Full name" id="user" />
+                                <span id="usererror"></span>
+                                <input type="text" placeholder="Email address" id="email" />
+                                <span id="erroremail"></span>
+                                <input type="password" placeholder="Password" id="password" />
+                                <span id="errorpass"></span>
+
+
+                                <div class="checkbox">
+                                    <input type="checkbox" id="signupCheck" />
+                                    <label for="signupCheck">I accept all terms & conditions</label>
+                                </div>
+                                <input type="submit" value="Submit" />
+                            </form>
+                        </div>
+
+
+                </div>
+
+            </div>
+        </div>
+
+        <!-- hero section End  -->
+
+    </header>
+    <div id="best-seller"></div>
+    <!-- navbar End  -->
+
+
+    <!-- best Seller  -->
+
+    <div class="container-fluid">
+        <div class="seller_tiitle">
+            <h2>Best Sellers</h2>
+        </div>
+
+        <div class="seller_fl">
+            <div class="seller_img">
+                <img src="img/blog img (3).jpg" alt="">
+
+                <div class="overlay-fl"></div>
+
+                <div class="fl_menu_price_fl">
+                    <div class="price_fl-content">
+                        <p>3 days/2 nights</p>
+                    </div>
+                    <div class="price_fl-content">
+                        <strong> <a href=""> From $1000</a></strong>
+                    </div>
+                </div>
+                <div class="tiitle-price_descript">
+                    <span onclick=" window.location.href = 'https:Google.com' ">Sintra, Lisbon and Fátima Three-Day Tour</span>
+                </div>
+            </div>
+            <div class="seller_img">
+                <img src="img/blog img (1).jpg" alt="">
+                <div class="overlay-fl"></div>
+                <div class="fl_menu_price_fl">
+                    <div class="price_fl-content">
+                        <p>3 days/2 nights</p>
+                    </div>
+                    <div class="price_fl-content">
+                        <strong> <a href=""> From $1000</a></strong>
+                    </div>
+                </div>
+                <div class="tiitle-price_descript">
+                    <span onclick=" window.location.href = 'https:Google.com' ">Sintra, Lisbon and Fátima Three-Day Tour</span>
+                </div>
+            </div>
+            <div class="seller_img">
+                <img src="img/blog img (4).jpg" alt="">
+                <div class="overlay-fl"></div>
+                <div class="fl_menu_price_fl">
+                    <div class="price_fl-content">
+                        <p>3 days/2 nights</p>
+                    </div>
+                    <div class="price_fl-content">
+                        <strong> <a href=""> From $1000</a></strong>
+                    </div>
+                </div>
+                <div class="tiitle-price_descript">
+                    <span onclick=" window.location.href = 'https:Google.com' ">Sintra, Lisbon and Fátima Three-Day Tour</span>
+                </div>
+            </div>
+            <div class="seller_img">
+                <img src="img/blog img (5).jpg" alt="">
+                <div class="overlay-fl"></div>
+                <div class="fl_menu_price_fl">
+                    <div class="price_fl-content">
+                        <p>3 days/2 nights</p>
+                    </div>
+                    <div class="price_fl-content">
+                        <strong> <a href=""> From $1000</a></strong>
+                    </div>
+                </div>
+                <div class="tiitle-price_descript">
+                    <span onclick=" window.location.href = 'https:Google.com' ">Sintra, Lisbon and Fátima Three-Day Tour</span>
+                </div>
+            </div>
+            <div class="seller_img">
+                <img src="img/blog img (6).jpg" alt="">
+                <div class="overlay-fl"></div>
+                <div class="fl_menu_price_fl">
+                    <div class="price_fl-content">
+                        <p>3 days/2 nights</p>
+                    </div>
+                    <div class="price_fl-content">
+                        <strong> <a href=""> From $1000</a></strong>
+                    </div>
+                </div>
+                <div class="tiitle-price_descript">
+                    <span onclick=" window.location.href = 'https:Google.com' ">Sintra, Lisbon and Fátima Three-Day Tour</span>
+                </div>
+            </div>
+            <div class="seller_img">
+                <img src="img/blog img (2).jpg" alt="">
+                <div class="overlay-fl"></div>
+                <div class="fl_menu_price_fl">
+                    <div class="price_fl-content">
+                        <p>3 days/2 nights</p>
+                    </div>
+                    <div class="price_fl-content">
+                        <strong> <a href=""> From $1000</a></strong>
+                    </div>
+                </div>
+                <div class="tiitle-price_descript">
+                    <span onclick=" window.location.href = 'https:Google.com' ">Sintra, Lisbon and Fátima Three-Day Tour</span>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="cta_btn-fl">
+            <div id="about"></div>
+
+            <div class="cta_btn_menu-fl">
+                <button>VIEW ALL TOURS</button>
+            </div>
+        </div>
+
+
+
+    </div>
+    <!-- best Seller End   -->
+
+
+
+    <!-- next section -->
+
+    <div class="bg-color">
+        <div class="container-fluid">
+            <div class="row row-50 justify-content-center justify-content-lg-between">
+                <div class="col-md-6 col-lg-5 col-xl-3">
+                    <h3 class="mega-big font-weight-bold h-custom-1 f1 t text-md-left">Our Values</h3>
+                    <p class="pr-xl-1">Since our foundation, Skyline has been the leading tour agency in Portugal, offering top-quality services. We take great pride in our diverse portfolio of tours in Portugal. We also offer high quality tours and experiences.</p><a class="button button-primary"
+                        href="#">read more</a>
+                </div>
+                <div class="col-md-6 col-xl-3">
+                    <h3 class="mega-big font-weight-bold h-custom-1  text-md-left">Destinations</h3>
+                    <!-- Linear progress bar-->
+                    <article class="progress-linear animated-first">
+                        <div class="progress-header">
+                            <p class="text-gray-900">Lisbon</p><span class="text-gray-900 progress-value">75</span>
+                        </div>
+                        <div class="progress-bar-linear-wrap" id="w-d-1">
+                            <div class="progress-bar-linear" style="width: 75%;"></div>
+                        </div>
+                    </article>
+                    <!-- Linear progress bar-->
+                    <article class="progress-linear animated-first">
+                        <div class="progress-header">
+                            <p class="text-gray-900">Sintra</p><span class="text-gray-900 progress-value">33</span>
+                        </div>
+                        <div class="progress-bar-linear-wrap" id="w-d-2">
+                            <div class="progress-bar-linear" style="width: 33%;"></div>
+                        </div>
+                    </article>
+                    <!-- Linear progress bar-->
+                    <article class="progress-linear animated-first">
+                        <div class="progress-header">
+                            <p class="text-gray-900">Oporto</p><span class="text-gray-900 progress-value">88</span>
+                        </div>
+                        <div class="progress-bar-linear-wrap" id="w-d-3">
+                            <div class="progress-bar-linear" style="width: 88%;"></div>
+                        </div>
+                    </article>
+                    <!-- Linear progress bar-->
+                    <article class="progress-linear animated-first">
+                        <div class="progress-header">
+                            <p class="text-gray-900">Évora</p><span class="text-gray-900 progress-value">75</span>
+                        </div>
+                        <div class="progress-bar-linear-wrap" id="w-d-4">
+                            <div class="progress-bar-linear" style="width: 75%;"></div>
+                        </div>
+                    </article>
+                    <!-- Linear progress bar-->
+                    <article class="progress-linear animated-first">
+                        <div class="progress-header">
+                            <p class="text-gray-900">Óbidos</p><span class="text-gray-900 progress-value">50</span>
+                        </div>
+                        <div class="progress-bar-linear-wrap" id="w-d-5">
+                            <div class="progress-bar-linear" style="width: 50%;"></div>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-xl-4">
+                    <h3 class="mega-big font-weight-bold h-custom-1  text-xl-left">Partners</h3>
+                    <div class="row row-flex row-30">
+                        <div class="col-6 col-md-3 col-xl-6">
+                            <!-- Box Award-->
+                            <article class="box-award"><img class="box-award-image" src="img/avtar (1).jpg" alt="" width="132" height="49">
+                            </article>
+                        </div>
+                        <div class="col-6 col-md-3 col-xl-6">
+                            <!-- Box Award-->
+                            <article class="box-award"><img class="box-award-image" src="img/avtar (2).jpg" alt="" width="120" height="71">
+                            </article>
+                        </div>
+                        <div class="col-6 col-md-3 col-xl-6">
+                            <!-- Box Award-->
+                            <article class="box-award" id="p-d-full">
+                                <img class="box-award-image" src="img/avtar (3).jpg" alt="" width="100" height="90">
+                            </article>
+                        </div>
+                        <div class="col-6 col-md-3 col-xl-6">
+                            <!-- Box Award-->
+                            <article class="box-award"><img class="box-award-image" src="img/avtar 4.jpg" alt="" width="160" height="23">
+                            </article>
+                        </div>
+                    </div>
+                    <div id="advantages"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- next section End  -->
+
+
+    <!-- our Advantages -->
+
+    <div class="container-fluid">
+        <div class="tiitle_advan">
+            <div class="seller_tiitle-fl">
+                <h2>Our Advantages</h2>
+            </div>
+            <div class="advantage-pare-p">
+                <p>You can rely on our experience and the quality of services we provide. Here are other reasons to book tours at Skyline.</p>
+            </div>
+
+            <div class="row row-50 justify-content-center">
+                <div class="col-sm-6 col-lg-4 col-xl-3">
+                    <!-- Box Classic-->
+                    <article class="box-classic">
+                        <div class="icon box-classic-icon">
+                            <img src="img/dollar.png" alt="">
+
+                        </div>
+                        <div class="box-classic-main">
+                            <h4 class="box-classic-title">Lowest Prices</h4>
+                            <div class="box-classic-inner">
+                                <p>Skyline offers its clients an affordable pricing policy.</p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-sm-6 col-lg-4 col-xl-3">
+                    <!-- Box Classic-->
+                    <article class="box-classic">
+                        <div class="icon box-classic-icon ">
+                            <img src="img/checklis.png" alt="">
+
+                        </div>
+                        <div class="box-classic-main">
+                            <h4 class="box-classic-title">Variety of Tours</h4>
+                            <div class="box-classic-inner">
+                                <p>We offer a vast variety of tours for those who love European travel.</p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-sm-6 col-lg-4 col-xl-3">
+                    <!-- Box Classic-->
+                    <article class="box-classic">
+                        <div class="icon box-classic-icon">
+                            <img src="img/thumb.png" alt="">
+
+                        </div>
+                        <div class="box-classic-main">
+                            <h4 class="box-classic-title">Easy Booking</h4>
+                            <div class="box-classic-inner">
+                                <p>Easily book a tour, an air ticket or a hotel room using our website.</p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-sm-6 col-lg-4 col-xl-3">
+                    <!-- Box Classic-->
+                    <article class="box-classic">
+                        <div class="icon box-classic-icon ">
+                            <img src="img/diamond.png" alt="">
+
+
+                        </div>
+                        <div class="box-classic-main">
+                            <h4 class="box-classic-title">Most Popular Agency</h4>
+                            <div class="box-classic-inner">
+                                <p>We’ve been rated #1 European tour agency numerous times.</p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- our Advantages End  -->
+
+
+    <!-- Experience the Beauty of Portugal -->
+
+    <div class="bg-img_bg">
+        <div class="container-fluid">
+            <div class="fl_content">
+                <div class="heading-fl-content">
+                    <h1>Experience the Beauty of Portugal</h1>
+                </div>
+                <div class="heading-fl-content">
+                    <div class="cta_btn-fl">
+                        <div class="cta_btn_menu-fl">
+                            <button>BOOK A TOUR</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Experience the Beauty of Portugal end   -->
+
+    <!-- testimonilas -->
+
+    <div class="container-fluid">
+        <div class="wrap-txt">
+            <div class="seller_tiitle-fl-types">
+                <h2>Testimonials</h2>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="row row-50 justify-content-center justify-content-lg-between" id="fl-fl-full">
+
+
+            <div class="col-md-6 col-lg-5 col-xl-3">
+                <div class="text-wrap-fl-types">
+                    <div class="text-flow-inner">
+                        <div class="pare-text">
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione voluptatem impedit suscipit nostrum iste. Molestiae quo illo cum repellat itaque nulla perspiciatis rerum cumque. Quam aut fugiat ipsa ipsum similique.
+                            </p>
+                        </div>
+                        <div class="fl-user-profile">
+                            <div class="fl-img-user">
+                                <img src="img/man.png" alt="">
+                            </div>
+                            <div class="fl-img-user">
+                                <p>James Smith</p>
+                                <div class="c_p">
+                                    <p> Ceo</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-5 col-xl-3">
+                <div class="text-wrap-fl-types">
+                    <div class="text-flow-inner">
+                        <div class="pare-text">
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione voluptatem impedit suscipit nostrum iste. Molestiae quo illo cum repellat itaque nulla perspiciatis rerum cumque. Quam aut fugiat ipsa ipsum similique.
+                            </p>
+                        </div>
+                        <div class="fl-user-profile">
+                            <div class="fl-img-user">
+                                <img src="img/man 2.png" alt="">
+                            </div>
+                            <div class="fl-img-user">
+                                <p>James Smith </p>
+                                <div class="c_p">
+                                    <p>Regular Client</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-5 col-xl-3">
+                <div class="text-wrap-fl-types">
+                    <div class="text-flow-inner">
+                        <div class="pare-text">
+                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione voluptatem impedit suscipit nostrum iste. Molestiae quo illo cum repellat itaque nulla perspiciatis rerum cumque. Quam aut fugiat ipsa ipsum similique.
+                            </p>
+                        </div>
+                        <div class="fl-user-profile">
+                            <div class="fl-img-user">
+                                <img src="img/man 3.png" alt="">
+                            </div>
+                            <div class="fl-img-user">
+                                <p>Jone Doe </p>
+                                <div class="fl-img-user">
+
+                                    <div class="c_p">
+                                        <p>Regular Client</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta_btn-fl">
+            <div class="cta_btn_menu-fl">
+                <button>VIEW ALL TESTIMONIALS</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- testimonilas End -->
+
+
+
+    <!-- circal bar  -->
+
+    <div class="bg-circle-process" style="    background-image:  linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2))
+  ,url(./img/blog\ img\ \(2\).jpg);
+  ">
+        <div class="container-fluid">
+            <div class="row row-50 rp-full-w">
+
+                <div class="col-6 col-md-3">
+
+
+                    <!-- Counter Modern-->
+                    <article class="counter-modern">
+                        <div class="icon-fl counter-modern-icon mdi ">
+                            <img src="img/user.png" alt="" width="90px">
+                            <div class="fl-heading-po">
+                                <h1>1.2M</h1>
+                            </div>
+
+                            <div class="fl-float-p">
+                                <div class="fl-dd-cl">
+                                    <span>Happy</span>
+                                </div>
+                                <div class="fl-dd-cl">
+                                    <span>Clients</span>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                    </article>
+                </div>
+                <div class="col-6 col-md-3">
+                    <!-- Counter Modern-->
+                    <article class="counter-modern">
+                        <div class="icon-fl counter-modern-icon">
+                            <img src="img/star.png" alt="" width="90px">
+                            <div class="fl-heading-po">
+                                <h1>117</h1>
+                            </div>
+                            <div class="fl-float-p">
+                                <div class="fl-dd-cl">
+                                    <span>Amazing </span>
+                                </div>
+                                <div class="fl-dd-cl">
+                                    <span>Tours</span>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </article>
+                </div>
+                <div class="col-6 col-md-3">
+                    <!-- Counter Modern-->
+                    <article class="counter-modern">
+                        <div class="icon-fl counter-modern-icon mdi">
+                            <img src="img/calendar.png" alt="" width="90px">
+                            <div class="fl-heading-po">
+                                <h1>231</h1>
+                            </div>
+                            <div class="fl-float-p">
+                                <div class="fl-dd-cl">
+                                    <span>Partners</span>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+
+                    </article>
+                </div>
+                <div class="col-6 col-md-3">
+                    <!-- Counter Modern-->
+                    <article class="counter-modern">
+                        <div class="icon-fl counter-modern-icon mdi">
+                            <img src="img/coment.png" alt="" width="90px">
+
+                            <div class="fl-heading-po">
+                                <h1>6K</h1>
+                            </div>
+                            <div class="fl-float-p">
+                                <div class="fl-dd-cl">
+                                    <span>Questions</span>
+                                </div>
+                                <div class="fl-dd-cl">
+                                    <span> Answered</span>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                    </article>
+                </div>
+            </div>
+        </div>
+        <div id="blog"></div>
+    </div>
+    <!-- circal bar end   -->
+
+
+    <!-- blog section start -->
+
+    <div class="container-fluid">
+        <div class="blog-text-content">
+            <div class="blog-content">
+                <h1>Latest Blog Posts</h1>
+            </div>
+        </div>
+
+        <div class="blog-content-post">
+            <div class="post-blog-img">
+                <div class="blog-items-img">
+                    <img src="img/blog img (3).jpg" alt="">
+
+                    <div class="overlay">
+
+                    </div>
+
+
+
+
+                    <div class="ct-new">
+                        <div class="news-btn">
+                            <button>News</button>
+                        </div>
+                    </div>
+                    <div class="text-fl-blog">
+                        <div class="p-types-pare">
+                            <p>January 5, 2020, at 12:07 pm</p>
+                        </div>
+                        <div class="p-types-pare">
+                            <span>7 Must-See Places in Portugal</span>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="blog-items-img">
+                    <img src="img/blog img (4).jpg" alt="">
+                    <div class="overlay">
+
+                    </div>
+                    <div class="ct-new">
+                        <div class="news-btn">
+                            <button>News</button>
+                        </div>
+                    </div>
+                    <div class="text-fl-blog">
+                        <div class="p-types-pare">
+                            <p>January 5, 2020, at 12:07 pm</p>
+                        </div>
+                        <div class="p-types-pare">
+                            <span>7 Must-See Places in Portugal</span>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="blog-items-img">
+                    <img src="img/blog img (5).jpg" alt="">
+                    <div class="overlay">
+
+                    </div>
+                    <div class="ct-new">
+                        <div class="news-btn">
+                            <button>News</button>
+                        </div>
+                    </div>
+                    <div class="text-fl-blog">
+                        <div class="p-types-pare">
+                            <p>January 5, 2020, at 12:07 pm</p>
+                        </div>
+                        <div class="p-types-pare">
+                            <span>7 Must-See Places in Portugal</span>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="blog-items-img">
+                    <img src="img/blog img (6).jpg" alt="">
+                    <div class="overlay">
+
+                    </div>
+                    <div class="ct-new">
+                        <div class="news-btn">
+                            <button>News</button>
+                        </div>
+                    </div>
+                    <div class="text-fl-blog">
+                        <div class="p-types-pare">
+                            <p>January 5, 2020, at 12:07 pm</p>
+                        </div>
+                        <div class="p-types-pare">
+                            <span>7 Must-See Places in Portugal</span>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="blog-items-img">
+                    <img src="img/blog img (2).jpg" alt="">
+                    <div class="overlay">
+
+                    </div>
+                    <div class="ct-new">
+                        <div class="news-btn">
+                            <button>News</button>
+                        </div>
+                    </div>
+                    <div class="text-fl-blog">
+                        <div class="p-types-pare">
+                            <p>January 5, 2020, at 12:07 pm</p>
+                        </div>
+                        <div class="p-types-pare">
+                            <span>7 Must-See Places in Portugal</span>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="blog-items-img">
+                    <img src="img/blog img (1).jpg" alt="">
+                    <div class="ct-new">
+                        <div class="news-btn">
+                            <button>News</button>
+                        </div>
+                    </div>
+                    <div class="text-fl-blog">
+                        <div class="p-types-pare">
+                            <p>January 5, 2020, at 12:07 pm</p>
+                        </div>
+                        <div class="p-types-pare">
+                            <span>7 Must-See Places in Portugal</span>
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+
+        <div class="cta_btn-fl">
+            <div class="cta_btn_menu-fl">
+                <button>VIEW ALL BLOG POST</button>
+            </div>
+        </div>
+    </div>
+    <!-- blog section start End  -->
+
+    <!-- gallry -->
+
+    <div class="bg-water">
+        <div class="container-fluid">
+            <div class="video-bg">
+                <video src="img/production_id_4763824 (2160p).mp4" autoplay loop muted></video>
+            </div>
+            <div class="content-fl-types_gallary-post">
+                <div class="heading_tittle-types">
+                    <span>OUR GALLERY</span>
+                </div>
+                <div class="big-slot-heading">
+                    <h1>See Portugal Through Our Eyes As We Capture Nature, Culture & Everyday Life</h1>
+                </div>
+                <div class="pare_p_types_bg-water">
+                    <p>Take a look at our gallery that features the best moments from our tours and excursions.</p>
+                </div>
+                <div class="cta_btn-fl fl-types_repeat">
+                    <div class="cta_btn_menu-fl">
+                        <div id="contact"></div>
+
+                        <button>VIEW GALLERY</button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- gallry End  -->
+
+
+    <!-- CONTACT FORM -->
+
+    <div class="m-y-top-fl-types">
+        <div class="container-fluid">
+            <div class="row row-50 justify-content-lg-between  text-md-left" id="fl-xl">
+
+                <div class="col-md-5 col-lg-5 col-xl-6">
+                    <h3 class="font-weight-bold">Contact Information</h3>
+                    <div class="call-information">
+                        <div class="information">
+                            <div class="img-call">
+                                <div class="fl-content-right">
+
+                                    <div class="content-fl-l-fl">
+                                        <img src="img/phone-call.png" alt="">
+
+                                        <div class="content-tittle-fl">
+                                            <a href="tel:+">+1858553000</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="img-call">
+                                <div class="content-fl-l-fl">
+                                    <img src="img/mail.png" alt="">
+
+                                    <div class="content-tittle-fl">
+                                        <a href="mailto:">info@gmail.com</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="img-call">
+
+                                <div class="content-fl-l-fl">
+                                    <img src="img/pin.png" alt="">
+                                    <div class="content-tittle-fl">
+                                        <a href="">123 streat 1 Purtgal</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="col-md-7 col-lg-6 col-xl-5">
+                    <h3 class="font-weight-bold">Get in Touch</h3>
+                    <form action="#" class="form-data-fo-fl">
+                        <div class="form-wraping-data">
+                            <div class="form-detaile-input">
+                                <input type="text" name="" id="" placeholder="Name ">
+                            </div>
+                            <div class="form-detaile-input">
+                                <input type="text" name="" id="" placeholder="Email">
+                            </div>
+                            <div class="form-detaile-input">
+                                <textarea name="" id="" cols="30" rows="10" placeholder="Message"></textarea>
+                            </div>
+                            <div class="cta_btn-fl" style="padding: 0 ; text-align: left;">
+                                <div class="cta_btn_menu-fl fl-op-text">
+                                    <button>Send</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- CONTACT FORM End  -->
+
+
+
+    <!-- instagram fedds -->
+
+    <div class="insta_fedd">
+        <div class="feedd">
+            <div class="feeds_img">
+                <img src="img/insta (1).jpg" alt="">
+            </div>
+            <div class="feeds_img">
+                <img src="img/insta (2).jpg" alt="">
+            </div>
+            <div class="feeds_img">
+                <img src="img/insta (3).jpg" alt="">
+            </div>
+            <div class="feeds_img">
+                <img src="img/insta (4).jpg" alt="">
+            </div>
+            <div class="feeds_img">
+                <img src="img/insta (5).jpg" alt="">
+            </div>
+        </div>
+    </div>
+
+    <!-- instagram fedds End  -->
+
+
+
+
+    <!-- footer -->
+
+    <div class="bg-footer">
+        <div class="container-fluid">
+            <div class="f-p-footer">
+                <div class="footer-content-tiilles">
+                    <div class="tiitle-fo">
+                        <h3>356
+                        </h3>
+                        <p>Tours</p>
+                    </div>
+                    <div class="tiitle-fo">
+                        <h3>132
+
+                        </h3>
+                        <p>Regular Excursions <br> and Itineraries</p>
+                    </div>
+                    <div class="tiitle-fo">
+                        <h3>2 312
+                        </h3>
+                        <p>Positive Reviews by <br>Satisfied Customers</p>
+                    </div>
+                    <div class="tiitle-fo">
+                        <h3>13
+                        </h3>
+                        <p>Years of Experience in <br>Tourism</p>
+                    </div>
+                    <div class="tiitle-fo" id="copy-text">
+
+                        <p>© 2024 All Rights Reserved</p>
+                    </div>
+                </div>
+
+                <div class="footer-sec-content">
+                    <div class="twitter-fedd">
+                        <h3>Twitter Feed
+                        </h3>
+                    </div>
+                    <div class="twitter-feed-icon">
+                        <div class="icon-feedd-img">
+                            <img src="img/twitter (1).png" alt="" width="70px">
+                        </div>
+                        <div class="icon-feedd-img">
+                            <p>
+                                The Rule Of Thirds: An Ultimate Key To Your Stunning <a href="">#Photo - https://goo.gl/owH6x5
+                  #webdesign</a>
+                            </p>
+                            <p> 51 minutes ago</p>
+                        </div>
+                    </div>
+                    <div class="twitter-feed-icon">
+                        <div class="icon-feedd-img">
+                            <img src="img/twitter (1).png" alt="" width="70px">
+                        </div>
+                        <div class="icon-feedd-img">
+                            <p>
+                                The Rule Of Thirds: An Ultimate Key To Your Stunning <a href="">#Photo - https://goo.gl/owH6x5
+                  #webdesign</a>
+                            </p>
+
+                            <p> 51 minutes ago</p>
+                        </div>
+                    </div>
+                    <div class="twitter-feed-icon">
+                        <div class="icon-feedd-img">
+                            <img src="img/twitter (1).png" alt="" width="70px">
+                        </div>
+                        <div class="icon-feedd-img">
+                            <p>
+                                The Rule Of Thirds: An Ultimate Key To Your Stunning <a href=""> #Photo - https://goo.gl/owH6x5
+                  #webdesign</a>
+                            </p>
+                            <p> 51 minutes ago</p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="footer-3">
+                    <div class="content-about-footer">
+                        <div class="footer-c_types_about">
+                            <h3>About Us</h3>
+                        </div>
+                        <div class="footer-c_types_about">
+                            <p>Founded in 2005, Skyline offers travelers a great selection of tours and excursions in Portugal. Explore the best and yet untraveled places of this breathtaking European destination.</p>
+                        </div>
+                    </div>
+                    <div class="content-about-footer">
+                        <div class="footer-c_types_about">
+                            <h3>Newsletter</h3>
+                        </div>
+                        <div class="footer-c_types_about">
+                            <p>Keep up with the weekly news and updates from Skyline. Enter your e-mail and subscribe to our newsletter..
+                            </p>
+                        </div>
+
+
+                        <form action="#">
+                            <div class="fileds">
+                                <div class="input-data">
+                                    <input type="text" name="" id="" placeholder="Enter Your Email address">
+                                    <button>Email</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- footer End  -->
+
+
+
+
+
+
+        <!-- app.js link  -->
+
+
+        <script src="./js/app.js"></script>
+
+
+        <!-- app.js link End   -->
+
+
+        <!-- script bootstrap -->
+        <script defer src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- script bootstrap End  -->
+
+
+
+        <script>
+            window.addEventListener('scroll', function() {
+                var header = document.querySelector('.navbar');
+                header.classList.toggle('scrolled', window.scrollY > 0);
+
+                var navLinks = document.querySelectorAll('.nav-link');
+                navLinks.forEach(function(link) {
+                    link.classList.toggle('black-color', window.scrollY > 0);
+                });
+
+                var side = document.querySelectorAll('.side');
+                side.forEach(function(link) {
+                    link.classList.toggle('color-black-side', window.scrollY > 0)
+                })
+            });
+
+
+            // stikey navbar
+
+
+// stikey navbar end
+
+
+
+
+// side bar 
+function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+}
+
+// side bar  End 
+
+
+
+// scroll top btn //
+
+let mybutton = document.getElementById("myBtn");
+
+window.onscroll = function() {
+    scrollFunction();
+};
+
+function scrollFunction() {
+    if (document.body.scrollTop > 120 || document.documentElement.scrollTop > 120) {
+        mybutton.style.display = "block";
+    } else {
+        mybutton.style.display = "none";
+    }
+}
+
+function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+}
+
+// scroll top btn End  //
+
+
+// loader //
+
+let loader = document.getElementById("preloader");
+window.addEventListener("load", function() {
+    loader.style.display = "none";
+});
+
+// loader End  //
+
+
+
+
+// form validation
+
+function validation() {
+    let username = document.getElementById("user").value;
+    let email = document.getElementById("email").value;
+    let password = document.getElementById("password").value;
+
+
+    if (username == "") {
+        document.getElementById("usererror").innerHTML = "please enter username";
+        return false;
+    }
+    if (email == "") {
+        document.getElementById("erroremail").innerHTML = "please enter email";
+        return false;
+    }
+    if (password == "") {
+        document.getElementById("errorpass").innerHTML = "please enter password";
+        return false;
+    } else {
+        alert("thanku for Contact me 👍👍👍👍");
+    }
+}
+
+// form validation End
+        </script>
+
+
+</body>
+
+</html>
